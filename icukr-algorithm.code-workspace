@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "leetcode",
+			"path": "../../../../../Desktop/code/learn/leetcode"
+		}
+	],
+	"settings": {
+		"editor.inlineSuggest.showToolbar": "onHover",
+		"black-formatter.importStrategy": "useBundled",
+		"python.autoComplete.extraPaths": [],
+		"files.autoSave": "onFocusChange",
+		"editor.formatOnSave": true
+	}
+}
