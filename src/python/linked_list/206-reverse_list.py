@@ -29,7 +29,7 @@ class ListNode:
 
 
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def reverseList_by_recursive(self, head: Optional[ListNode]) -> Optional[ListNode]:
         """recursive solution"""
         if not head or not head.next:
             return head
@@ -40,6 +40,21 @@ class Solution:
         head.next = None
 
         return last
+
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """iter solution"""
+        pre, curr, nxt = None, head, head
+        while curr:
+            # record next node, otherwise it will be broken.
+            nxt = curr.next
+            # reverse the direction
+            curr.next = pre
+
+            # move the pointer to next node
+            pre = curr
+            curr = nxt
+
+        return pre
 
 
 # @lc code=end
