@@ -1,5 +1,6 @@
 from typing import Optional, List
 from abc import ABCMeta, abstractmethod
+from collections import deque
 
 """
 Note(labuladong):
@@ -65,6 +66,22 @@ class PostOrder(BaseOrder):
         self._traverse(root.left, res=res)
         self._traverse(root.right, res=res)
         res.append(root.val)
+
+
+class LevelOrder(BaseOrder):
+    def _traverse(self, root: Optional[TreeNode], res: List[int]):
+        if not root:
+            return
+        q = deque()
+        q.append(root)
+
+        while q:
+            curr = q.popleft()
+            res.append(curr.val)
+            if curr.left:
+                q.append(curr.left)
+            if curr.right:
+                q.append(curr.right)
 
 
 # 如何理解：
